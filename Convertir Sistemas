@@ -1,0 +1,40 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace BinaryConver
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            do
+            {
+                int respuesta;
+                string binario = "";
+
+                Console.WriteLine("--De decimal a binario--");
+                Console.WriteLine("Introduzca el numero decimal a convertir: ");
+                respuesta = Convert.ToInt32(Console.ReadLine());
+
+                if (respuesta == 0)
+                {
+                    Console.WriteLine("0");
+                    goto Fin;
+                }
+
+                while (respuesta > 0)
+                {
+                    binario = (respuesta % 2) + binario;
+                    respuesta = respuesta / 2;
+                }
+
+                Console.WriteLine(binario);
+            Fin:
+                Console.ReadKey();
+            } while (true);            
+        }
+    }
+}
