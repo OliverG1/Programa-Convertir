@@ -1,0 +1,53 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace AsciiConver
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            do
+            {
+                string respuesta, text, cadena;
+                char del = ' ';
+                string[] valores;
+
+                Console.Clear();
+
+                Console.WriteLine("Seleccione: ");
+                Console.WriteLine("[1] De Ascii a texto");
+                Console.WriteLine("[2] De tetxo a Ascii");
+                respuesta = Console.ReadLine();
+
+                switch (respuesta)
+                {
+                    case "1":
+                        Console.WriteLine("Introduzca el codigo Ascii a convertir: ");
+                        cadena = Console.ReadLine();
+                        valores = cadena.Split(del);
+                        foreach (var ascii in valores)
+                        {
+                            Console.Write((char)(Convert.ToInt32(ascii)));
+                        }                  
+                        break;
+                    case "2":
+                        Console.WriteLine("Introduzca el codigo texto a convertir: ");
+                        text = Console.ReadLine();
+                        for(int i = 0; i < text.Length; i++)
+                        {
+                            Console.Write(Encoding.ASCII.GetBytes(text.ToString())[i]);
+                        }    
+                        break;
+                    default:
+                        Console.WriteLine("La opción seleccionada no esta disponible");                        
+                        break;
+                }
+                Console.ReadKey();
+            } while (true);
+        }
+    }
+}
